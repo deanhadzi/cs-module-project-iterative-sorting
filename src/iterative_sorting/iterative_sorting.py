@@ -24,34 +24,32 @@ def selection_sort(arr):
 # TO-DO: implement the bubble_sort() function below
 def bubble_sort(arr):
     """Bubble Sort algorithm."""
+
     # Set up initial flags.
     active = True
     swap_counter = 0
     cur_index = 0
-    next_index = 1
 
     # Start the loop.
     while active:
         # Compare the current index with the next index in line.
         if cur_index <= len(arr) - 2:
             # If the current index is larger, swap the items.
-            if arr[cur_index] > arr[next_index]:
-                arr[cur_index], arr[next_index] = arr[next_index], arr[cur_index]
+            if arr[cur_index] > arr[cur_index + 1]:
+                arr[cur_index], arr[cur_index +
+                                    1] = arr[cur_index + 1], arr[cur_index]
                 # Increment each index and bump the swap counter.
                 cur_index += 1
-                next_index += 1
                 swap_counter += 1
             # If no swap was done, continue traversing through the array.
             else:
                 cur_index += 1
-                next_index += 1
         # If we reached the last item in the array and we have more than 0 swaps,
         # reset the counters to initial values.
         elif cur_index == len(arr) - 1 and swap_counter > 0:
             swap_counter = 0
             cur_index = 0
-            next_index = 1
-        # Otherwise, if we reach the last item and there was no swaps, kill the loop. 
+        # Otherwise, if we reach the last item and there was no swaps, kill the loop.
         else:
             active = False
 
